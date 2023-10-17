@@ -27,9 +27,9 @@ const option : EChartsOption= {
                     params.seriesName +
                     ' :<br/>' +
                     params.value[0] +
-                    'cm ' +
+                    'px/s ' +
                     params.value[1] +
-                    'kg '
+                    '点 '
                 );
             } else {
                 return (
@@ -38,7 +38,7 @@ const option : EChartsOption= {
                     params.name +
                     ' : ' +
                     params.value +
-                    'kg '
+                    'px/s '
                 );
             }
         },
@@ -105,6 +105,7 @@ event.on('dead', (man: Man[]) => {
     ]
 
     man.forEach(m => {
+        console.log('%s 速度 %i 被淋了 %i 点雨',m.name, m.speed,  m.rainCount)
         state.data.push([m.speed, m.rainCount])
     })
 

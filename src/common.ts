@@ -32,11 +32,7 @@ export class Base {
     age = 100
     disabled = false
 
-    be() {
-        return (Base.now - this.create_time) * (this.speed / 1000)
-    }
-
-    constructor(opt: Partial<Rain> = {}) {
+    constructor(opt: Partial<Base> = {}) {
         Object.assign(this, opt)
     }
 
@@ -54,6 +50,11 @@ export class Base {
 
     get right() {
         return this.x + this.w
+    }
+
+    // 用稳定的时间来排除逻辑loop的影响
+    be() {
+        return (Base.now - this.create_time) * (this.speed / 1000)
     }
 
     draw(ctx: CanvasRenderingContext2D) {
@@ -97,7 +98,7 @@ export class Man extends Base{
 
     run() {
         if (this.disabled) return
-        this.behind.push(this.x)
+        this.behind.push(parseInt(String(this.x), 10))
         this.x = this.be()
 
         if (this.x > this.age) {
