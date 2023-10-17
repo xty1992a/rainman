@@ -1,0 +1,22 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+*{
+  box-sizing: border-box;
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+  background-color: #fff;
+  width: 500px;
+  height: 500px;
+}
+
+#chart{
+  margin: 0 auto;
+  width: 900px;
+  height: 800px;
+}
